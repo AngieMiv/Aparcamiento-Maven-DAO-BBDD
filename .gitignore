@@ -21,6 +21,10 @@ target/
 .springBeans
 .sts4-cache
 
+# metadata eclipse?
+.metadata
+
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
