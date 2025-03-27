@@ -5,8 +5,8 @@ import java.util.ArrayList;
  * Defines a contract for data access operations on a collections of objects of type {@code T}.
  * 
  * <p>An interface in Java specifies a set of methods that implementing classes must define,
- * ensuring a consisten API while allowing flexibiliti in the actual implementation.
- * This interface follows de DAO (Data Access Object) pattern, providing basic CRUD operations.</p>
+ * ensuring a consistent API while allowing flexibility in the actual implementation.
+ * This interface follows the DAO (Data Access Object) pattern, providing basic CRUD operations.</p>
  * 
  * @param <T> the type of objects managed by this DAO
 

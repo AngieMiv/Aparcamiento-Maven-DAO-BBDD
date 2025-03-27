@@ -3,22 +3,39 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-// Lo mismo que en vehículo, implementa la interfaz serializable para transferencia de datos, aun no se usan los atributos de plazas.
+
+/**
+ * Represents a parking lot that can be serialized for storage or data transfer.
+ * 
+ * <p>This class implements {@link Serializable}, allowing instances of {@code Aparcamiento}
+ * to be converted into a byte stream and restored later.
+ * This is useful for saving the state of parking lots or 
+ * transferring data across different systems.</p>
+ * 
+ * @see Serializable
+ */
+
+/**
+ *  Lo mismo que en vehículo, implementa la interfaz serializable para transferencia de datos, 
+ *  aun no se usan los atributos de plazas.
+ */
 
 public class Aparcamiento implements Serializable {
 
+	private static final long serialVersionUID = 1L;	// Ensures compatibility across versions
+	
 	private String nombre;
 	private int numFilas ;		// Filas o pasillos de aparcamiento
-	private int numColumnas ;   // Plazas por fila o pasillo
-	private String[][] plaza;  // Plaza de aparcamiento
+	private int numColumnas ;	// Plazas por fila o pasillo
+	private String[][] plaza;	// Plaza de aparcamiento
 	private ArrayList<Vehiculo> listVehiculos = new ArrayList<Vehiculo>();
 
 	public DaoJDBC daojdbc = new DaoJDBC();
 	public DaoVehiculoJDBC bdVehiculos = new DaoVehiculoJDBC(daojdbc);
-	private static final long serialVersionUID = 1L;
+
 	
 	public Aparcamiento() {
-		  
+		
 	}
 
 

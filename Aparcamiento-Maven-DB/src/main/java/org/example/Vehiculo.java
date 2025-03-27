@@ -3,27 +3,44 @@ package org.example;
 import java.io.Serializable;
 
 /**
- * La clase Vehiculo implementa una interfaz llamada Serializable, no es mucho texto, solo indica al compilador que un objeto del tipo Vehiculo
- * puede ser convertido en una secuencia de bytes para transferencia de datos
+ * Represents a vehicle that can be serialized for storage or data transfer.
+ * 
+ * <p>This class implenets {@link Serializable}, enabling objects of
+ * {@code Vehiculo} to be saved as byte stream and restored when needed.
+ * This is useful for peristing vehicle data in files or databases.</p>
+ * 
+ * @see Serializable
+ */
+
+
+/**
+ * La clase Vehiculo implementa una interfaz llamada Serializable, no es mucho texto,
+ * solo indica al compilador que un objeto del tipo Vehiculo puede ser convertido 
+ * en una secuencia de bytes para transferencia de datos.
  */
 
 public class Vehiculo implements Serializable {
-
-    // Atributos
-
+	
+	// Indica la versión del serializador de Serializable
+	private static final long serialVersionUID = 1L;	// Ensures compatibility across versions
+   
+	// Atributos
     private String matricula;
     private String color;
     private int fecha;
 
-    private static final long serialVersionUID = 1L; //Indica la versión del serializador de Serializable
-
-    // Constructores
+    // --- Constructores
 
     public Vehiculo() {
         // TODO Auto-generated constructor stub
     }
 
-
+    /**
+     * 
+     * @param matricula
+     * @param color
+     * @param fecha
+     */
     public Vehiculo(String matricula, String color, int fecha) {
         super();
         this.matricula = matricula;
@@ -32,7 +49,7 @@ public class Vehiculo implements Serializable {
     }
 
     /**
-     *  String tiene el formato matricula;color;fecha
+     * String registro tiene el formato matricula;color;fecha
      * @param registro = Los valores de un objeto Vehiculo (matricula, color, fecha)
      */
     public Vehiculo(String registro) {
@@ -45,21 +62,33 @@ public class Vehiculo implements Serializable {
 
     /**
      * toCsv
-     * @return = Lo mismo que el anterior (el de arriba) pero este ordena los valores y los separa con ";" para ser
+     * @return = Lo mismo que el anterior (public Vehiculo(String registro)) pero este ordena los valores y los separa con ";" para ser
      * guardados en un archivo local, NO SE USA EN ESTE PROYECTO
      */
     public String toCsv() {
         return  matricula + ";" + color + ";" + fecha ;
     }
 
-    // Getters y Setters
+    // Getters
+    public String getMatricula() {
+    	return matricula;
+    }
+    public String getColor() {
+    	return color;
+    }
+    public int getFecha() {
+    	return fecha;
+    }
 
-    public String getMatricula() {		return matricula;	}
-    public void setMatricula(String matricula) {		this.matricula = matricula;	}
-    public String getColor() {		return color;	}
-    public void setColor(String color) {		this.color = color;	}
-    public int getFecha() {		return fecha;	}
-    public void setFecha(int fecha) {		this.fecha = fecha;	}
-
+    // Setters
+    public void setMatricula(String matricula) {
+    	this.matricula = matricula;
+    }
+    public void setColor(String color) {
+    	this.color = color;
+    }
+    public void setFecha(int fecha) {
+    	this.fecha = fecha;
+    }
 
 }

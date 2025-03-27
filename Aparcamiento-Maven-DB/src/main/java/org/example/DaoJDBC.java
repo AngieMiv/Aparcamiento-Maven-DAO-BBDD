@@ -12,22 +12,22 @@ import java.sql.SQLException;
 public class DaoJDBC {
 
     // amiv: por regla general, IP de DOCKER: 172.16.0.0/16
-    private static String server_ip = "192.168.1.138";
+	// poner localhost y que chuta
+    private static String server_ip = "localhost";
     // Esta IP debe cambiarse a la que aparece al hacer la conexión de ip en nuestra maquina virtual (2: inet de postgre)
 
-    private static String server_port = "5432"; // El puerto por lo general se mantiene
+    private static String server_port = "3306"; // El puerto por lo general se mantiene
     private static String _usr = "root"; 	// Usuario del docker
     private static String _pwd = "amiv"; 	// Contraseña del docker
-    private static String database = "java"; // Nombre de la base de datos
+    private static String database = "javaMySQL"; // Nombre de la base de datos
 
     // dbcs es la url contruida con la ip, el puerto y el nombre de la bbdd
-    String dbcs= "jdbc:postgresql://" + server_ip + ":" + server_port + "/" + database;
+    String dbcs= "jdbc:mysql://" + server_ip + ":" + server_port + "/" + database;
    
     // Objeto de tipo Connection, en un principio lo declaramos como null
     private static Connection c = null;
    
     // Getters
-
     public static String getServer_ip() {
         return server_ip;
     }
