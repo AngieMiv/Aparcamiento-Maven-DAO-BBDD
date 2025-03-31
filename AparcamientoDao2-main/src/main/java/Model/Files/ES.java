@@ -2,14 +2,14 @@ package Model.Files;
 
 import java.time.LocalDateTime;
 
-public class Es {
+public class ES {
 
 	private String matricula;
 	private boolean movimiento; // True => Entrada, False => Salida
 	private LocalDateTime fecha; // Fecha del movimiento
 	
 	
-	public Es() {
+	public ES() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -18,7 +18,7 @@ public class Es {
 	 * el registro
 	 * @param reg registro en formato csv
 	 */
-	public Es(String reg) {
+	public ES(String reg) {
 		
 		String[] campos = reg.split(";");
 		this.matricula = campos[0];
@@ -26,7 +26,7 @@ public class Es {
 		this.fecha = LocalDateTime.parse(campos[2]);
 	}
 	
-	public Es(String matricula, boolean movimiento, LocalDateTime fecha) {
+	public ES(String matricula, boolean movimiento, LocalDateTime fecha) {
 		super();
 		this.matricula = matricula;
 		this.movimiento = movimiento;

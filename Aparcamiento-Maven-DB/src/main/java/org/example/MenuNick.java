@@ -6,18 +6,18 @@ import java.util.Scanner;
 	El menú sigue siendo el mismo que venimos usando desde la UD 3 creo, no hay modificaciones
  */
 
-public class Menu {
+public class MenuNick {
 
 	private String Titulo;
 	private String[] Opciones;
 	private int opcElegida;
 	
 	// Vacío
-	public Menu() {
+	public MenuNick() {
 		
 	}
 	
-	public Menu(String titulo,String[] opcs) {
+	public MenuNick(String titulo,String[] opcs) {
 		
 		this.Titulo = titulo;
 		this.Opciones = opcs;

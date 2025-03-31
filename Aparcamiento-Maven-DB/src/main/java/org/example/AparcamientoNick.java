@@ -5,41 +5,30 @@ import java.util.Random;
 
 
 /**
- * Represents a parking lot that can be serialized for storage or data transfer.
- * 
- * <p>This class implements {@link Serializable}, allowing instances of {@code Aparcamiento}
- * to be converted into a byte stream and restored later.
- * This is useful for saving the state of parking lots or 
- * transferring data across different systems.</p>
- * 
- * @see Serializable
- */
-
-/**
  *  Lo mismo que en vehículo, implementa la interfaz serializable para transferencia de datos, 
  *  aun no se usan los atributos de plazas.
  */
 
-public class Aparcamiento implements Serializable {
+public class AparcamientoNick implements Serializable {
 
-	private static final long serialVersionUID = 1L;	// Ensures compatibility across versions
+	private static final long serialVersionUID = 1L;
 	
 	private String nombre;
 	private int numFilas ;		// Filas o pasillos de aparcamiento
 	private int numColumnas ;	// Plazas por fila o pasillo
 	private String[][] plaza;	// Plaza de aparcamiento
-	private ArrayList<Vehiculo> listVehiculos = new ArrayList<Vehiculo>();
+	private ArrayList<VehiculoNick> listVehiculos = new ArrayList<VehiculoNick>();
 
-	public DaoJDBC daojdbc = new DaoJDBC();
-	public DaoVehiculoJDBC bdVehiculos = new DaoVehiculoJDBC(daojdbc);
-
+	public DaoJDBCNick daojdbc = new DaoJDBCNick();
+	public DaoVehiculoJDBCNick bdVehiculos = new DaoVehiculoJDBCNick(daojdbc);
 	
-	public Aparcamiento() {
+	
+	public AparcamientoNick() {
 		
 	}
 
 
-	public Aparcamiento(String nombre) {
+	public AparcamientoNick(String nombre) {
 		this.nombre = nombre;
 		this.numFilas = 10;
 		this.numColumnas = 10;
@@ -54,8 +43,8 @@ public class Aparcamiento implements Serializable {
 
 	public String getNombre() 								 {	return nombre;	}
 	public void setNombre(String nombre) 					 {	this.nombre = nombre;	}
-	public ArrayList<Vehiculo> getListaVehiculos() 			 {	return listVehiculos;	}
-	public void setListVehiculos(ArrayList<Vehiculo> plazas) {	this.listVehiculos = plazas;	}
+	public ArrayList<VehiculoNick> getListaVehiculos() 			 {	return listVehiculos;	}
+	public void setListVehiculos(ArrayList<VehiculoNick> plazas) {	this.listVehiculos = plazas;	}
 
 	public int getNumFilas() 									{return numFilas;}
 	public void setNumFilas(int numFilas)						{this.numFilas = numFilas;}

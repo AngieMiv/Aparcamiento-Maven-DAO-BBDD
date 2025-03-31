@@ -11,11 +11,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class DaoAparcamientoJdbc extends DaoJdbc implements DaoList<Aparcamiento>
+public class DaoAparcamientoJDBC extends DaoJdbc implements DaoList<Aparcamiento>
 {
 
 	public ArrayList<Aparcamiento> listaAparcamientos = new ArrayList<Aparcamiento>();
-	public DaoAparcamientoJdbc() {
+	public DaoAparcamientoJDBC() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -42,7 +42,7 @@ public class DaoAparcamientoJdbc extends DaoJdbc implements DaoList<Aparcamiento
                 	
                 }
             } catch (SQLException ex) {
-                //Logger.getLogger(DaoAparcamientoJdbc.class.getName()).log(Level.SEVERE, null, ex);
+                //Logger.getLogger(DaoAparcamientoJDBC.class.getName()).log(Level.SEVERE, null, ex);
             	return null;
             }
         
@@ -72,7 +72,7 @@ public class DaoAparcamientoJdbc extends DaoJdbc implements DaoList<Aparcamiento
                 	
                 }
             } catch (SQLException ex) {
-                //Logger.getLogger(DaoAparcamientoJdbc.class.getName()).log(Level.SEVERE, null, ex);
+                //Logger.getLogger(DaoAparcamientoJDBC.class.getName()).log(Level.SEVERE, null, ex);
                 return null;
             }
         
@@ -96,7 +96,7 @@ public class DaoAparcamientoJdbc extends DaoJdbc implements DaoList<Aparcamiento
                         pstm.setInt(3,ap.getNumColumnas());
                         pstm.execute();
                     } catch (SQLException ex) {
-                        Logger.getLogger(DaoAparcamientoJdbc.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(DaoAparcamientoJDBC.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 
                 }

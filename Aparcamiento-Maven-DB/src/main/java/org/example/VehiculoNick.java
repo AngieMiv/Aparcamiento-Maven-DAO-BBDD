@@ -3,26 +3,15 @@ package org.example;
 import java.io.Serializable;
 
 /**
- * Represents a vehicle that can be serialized for storage or data transfer.
- * 
- * <p>This class implenets {@link Serializable}, enabling objects of
- * {@code Vehiculo} to be saved as byte stream and restored when needed.
- * This is useful for peristing vehicle data in files or databases.</p>
- * 
- * @see Serializable
- */
-
-
-/**
- * La clase Vehiculo implementa una interfaz llamada Serializable, no es mucho texto,
- * solo indica al compilador que un objeto del tipo Vehiculo puede ser convertido 
+ * La clase VehiculoNick implementa una interfaz llamada Serializable, no es mucho texto,
+ * solo indica al compilador que un objeto del tipo VehiculoNick puede ser convertido 
  * en una secuencia de bytes para transferencia de datos.
  */
 
-public class Vehiculo implements Serializable {
+public class VehiculoNick implements Serializable {
 	
 	// Indica la versión del serializador de Serializable
-	private static final long serialVersionUID = 1L;	// Ensures compatibility across versions
+	private static final long serialVersionUID = 1L;
    
 	// Atributos
     private String matricula;
@@ -31,7 +20,7 @@ public class Vehiculo implements Serializable {
 
     // --- Constructores
 
-    public Vehiculo() {
+    public VehiculoNick() {
         // TODO Auto-generated constructor stub
     }
 
@@ -41,7 +30,7 @@ public class Vehiculo implements Serializable {
      * @param color
      * @param fecha
      */
-    public Vehiculo(String matricula, String color, int fecha) {
+    public VehiculoNick(String matricula, String color, int fecha) {
         super();
         this.matricula = matricula;
         this.color = color;
@@ -50,9 +39,9 @@ public class Vehiculo implements Serializable {
 
     /**
      * String registro tiene el formato matricula;color;fecha
-     * @param registro = Los valores de un objeto Vehiculo (matricula, color, fecha)
+     * @param registro = Los valores de un objeto VehiculoNick (matricula, color, fecha)
      */
-    public Vehiculo(String registro) {
+    public VehiculoNick(String registro) {
 
         String[] campos = registro.split(";");
         this.matricula = campos[0]; // No necesita conversion
@@ -62,7 +51,7 @@ public class Vehiculo implements Serializable {
 
     /**
      * toCsv
-     * @return = Lo mismo que el anterior (public Vehiculo(String registro)) pero este ordena los valores y los separa con ";" para ser
+     * @return = Lo mismo que el anterior (public VehiculoNick(String registro)) pero este ordena los valores y los separa con ";" para ser
      * guardados en un archivo local, NO SE USA EN ESTE PROYECTO
      */
     public String toCsv() {

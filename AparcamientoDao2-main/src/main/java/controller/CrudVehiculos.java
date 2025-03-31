@@ -1,7 +1,6 @@
 package controller;
 
-
-import Model.DaoVehiculoJdbc;
+import Model.DaoVehiculoJDBC;
 import Model.Vehiculo;
 import java.util.Scanner;
 import tools.Menu;
@@ -12,7 +11,7 @@ import tools.Menu;
  */
 public class CrudVehiculos {
     
-    public  DaoVehiculoJdbc dvj = new DaoVehiculoJdbc();
+    public  DaoVehiculoJDBC dvj = new DaoVehiculoJDBC();
     public CrudVehiculos() {};
     
     public void run(){
@@ -45,9 +44,9 @@ public class CrudVehiculos {
                             case 0 -> salir = true;
                     } // opciones			
             } // bucle principal de la aplicación
-    } // run
+    } // end run
     
-    /**
+/**
  * Añade un vehículo nuevo al sistema
  */
 	public void addVehiculo() {

@@ -1,26 +1,40 @@
 package Model;
-
-import Model.Files.DaoEsList;
+import Model.Files.DaoESList;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 
-
-public class Aparcamiento  implements Serializable {
-
+/**
+ * Represents a parking lot that can be serialized for storage or data transfer.
+ * 
+ * <p>This class implements {@link Serializable}, allowing instances of {@code Aparcamiento}
+ * to be converted into a byte stream and restored later.
+ * This is useful for saving the state of parking lots or 
+ * transferring data across different systems.</p>
+ * 
+ * Lo mismo que en vehículo, implementa la interfaz serializable para transferencia de datos, 
+ * aun no se usan los atributos de plazas.
+ * 
+ * @see Serializable
+ */
+public class Aparcamiento implements Serializable {
+	
+	private static final long serialVersionUID = 1L;	// Ensures compatibility across versions
+	
 	private String nombre;
 	private int numFilas ;		// Filas o pasillos de aparcamiento
-	private int numColumnas ;   // Plazas por fila o pasillo
-	private String[][] plaza;  // Plaza de aparcamiento
+	private int numColumnas ;	// Plazas por fila o pasillo
+	private String[][] plaza;	// Plaza de aparcamiento
 	
-	public DaoVehiculoJdbc lstVehiculos = new DaoVehiculoJdbc();
-	public DaoEsList lstEs = new DaoEsList();
-	private static final long serialVersionUID = 1L;
+	public DaoVehiculoJDBC lstVehiculos = new DaoVehiculoJDBC();	//
+	public DaoESList lstES = new DaoESList();	// Lista de Entrada y Salida
 	
 	private int fila;
 	private int columna;
 	
+	// Constructores
 	public Aparcamiento() {}
-
+	
 
 	public Aparcamiento(String nombre, int numFilas, int numColumnas) {
 		this.nombre = nombre;
@@ -28,7 +42,11 @@ public class Aparcamiento  implements Serializable {
 		this.numColumnas = numColumnas;
 		this.plaza = new String[numFilas][numColumnas];
 		initPlazas();
+		
+		
 	}
+	
+	
 	public Aparcamiento(String nombre) {
 		this.nombre = nombre;
 		this.numFilas = 10;
@@ -37,8 +55,8 @@ public class Aparcamiento  implements Serializable {
 		initPlazas();
 	}
 
+	
 	public void initPlazas() {
-		
 		for (int i=0;i<numFilas;i++) {
 			for (int j=0;j<numColumnas;j++) {
 				plaza[i][j]="";					// Vacía
@@ -49,17 +67,19 @@ public class Aparcamiento  implements Serializable {
 	public int getNumFilas() 								 {	return numFilas;				}
 	public void setNumFilas(int numFilas) 					 {	this.numFilas = numFilas;		}
 	public int getNumColumnas() 							 {	return numColumnas;				}
+	
+	
 	public void setNumColumnas(int numColumnas)  			 {	this.numColumnas = numColumnas;	}
 	public String[][] getPlaza() 							 {	return plaza;					}
 	public String getNombre() 								 {	return nombre;					}
 	public void setNombre(String nombre) 					 {	this.nombre = nombre;			}
+	
 	
 	/** Buscar una plaza libre y la asigna
 	 * 
 	 * @param matricula Matrícula del vehículo a estacionar
 	 */
 	public boolean aparcarVehiculo(String matricula) {
-		
 				for (int i=0; i<numFilas; i++) {
 					for (int j=0; j<numColumnas; j++) {	
 						if (plaza[i][j].equals("")) {
@@ -69,7 +89,7 @@ public class Aparcamiento  implements Serializable {
 					} // col
 				} // fil
 				return false;
-	} // aparcarVehiculo
+	} // end aparcarVehiculo
 	
 	/** Buscar la ubicación del Vehiculo y libera la plaza
 	 * 
@@ -100,9 +120,13 @@ public class Aparcamiento  implements Serializable {
 					columna = j;
 					return true;
 				}
-			} // col
-		} // fil
+			} // columnas
+			
+		} // filas
+		
 		return false;
-	} // buscarVehiculos
+		
+	} // end buscarVehiculos
+
 	
-}
+} // end class Aparcamiento

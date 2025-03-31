@@ -6,12 +6,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class DaoEsList implements DaoList<Es> {
+public class DaoESList implements DaoList<ES> {
 
-	public ArrayList<Es> listaEntSal = new ArrayList<Es>();
+	public ArrayList<ES> listaEntSal = new ArrayList<ES>();
 	private static String rutaArchivo ="LogES.csv";
 	
-	public DaoEsList() {
+	public DaoESList() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -19,18 +19,18 @@ public class DaoEsList implements DaoList<Es> {
 	/**
 	 * Sin implementar
 	 */
-	public ArrayList<Es> findAll(){
+	public ArrayList<ES> findAll(){
 		
 		return null;
 	}
 	/**
 	 * Sin implementar
 	 */
-	public Es findOne(String key) {
+	public ES findOne(String key) {
 		
 		return null;
 	}
-	public boolean insertOne(Es t) {
+	public boolean insertOne(ES t) {
 		
 		boolean result = false;
 		listaEntSal.add(t);		// Persitencia en memoria
@@ -59,7 +59,7 @@ public class DaoEsList implements DaoList<Es> {
 	/**
 	 * Sin implementar
 	 */
-	public boolean updateOne(String key,Es t) {
+	public boolean updateOne(String key,ES t) {
 		
 		return true;
 	}

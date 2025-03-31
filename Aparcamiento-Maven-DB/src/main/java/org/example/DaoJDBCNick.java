@@ -9,7 +9,7 @@ import java.sql.SQLException;
  * en este caso es el mío, de mi maquina virtual con la conexión de mi red doméstica, indicaré que cambiar progresivamente
  */
 
-public class DaoJDBC {
+public class DaoJDBCNick {
 
     // amiv: por regla general, IP de DOCKER: 172.16.0.0/16
 	// poner localhost y que chuta
@@ -55,7 +55,7 @@ public class DaoJDBC {
      */
 
 
-    public DaoJDBC() {
+    public DaoJDBCNick() {
         try {
             c = DriverManager.getConnection(dbcs, _usr, _pwd);
             System.out.println("Conección establecida con éxito =D");
@@ -74,7 +74,7 @@ public class DaoJDBC {
     }
 
     // GetInstance es un metodo get que usamos para devolver la conexión, con la conexión podemos hacer consultas y sentencias
-    // más detallado en DaoVehiculoJDBC
+    // más detallado en DaoVehiculoJDBCNick
 
     public Connection getInstance() {
         return c;

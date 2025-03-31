@@ -2,28 +2,28 @@ package org.example;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// Recomendación: Leer antes las demás clases antes del AppMain
+// Recomendación: Leer antes las demás clases antes del AppMainNick
 
-public class AppMain {
+public class AppMainNick {
 
-    //Creación del aparcamiento, el DaoJDBC y el DaoVehiculoJDBC
-    public Aparcamiento apm = new Aparcamiento("Nick's Parking");
-    public DaoJDBC daoJDBC = new DaoJDBC();
-    public DaoVehiculoJDBC bdVehiculos = new DaoVehiculoJDBC(daoJDBC);
+    //Creación del aparcamiento, el DaoJDBCNick y el DaoVehiculoJDBCNick
+    public AparcamientoNick apm = new AparcamientoNick("Nick's Parking");
+    public DaoJDBCNick daoJDBCNick = new DaoJDBCNick();
+    public DaoVehiculoJDBCNick bdVehiculos = new DaoVehiculoJDBCNick(daoJDBCNick);
 
     //Constructor vacío
-    public AppMain() {
+    public AppMainNick() {
 
     }
-    //En el metodo main (principal) declaramos un AppMain y ejecutamos la función run, que tendrá toda la información y métodos, esto es sólo por orden y presentación.
+    //En el metodo main (principal) declaramos un AppMainNick y ejecutamos la función run, que tendrá toda la información y métodos, esto es sólo por orden y presentación.
     public static void main(String[] args) {
-        AppMain ap = new AppMain();
+        AppMainNick ap = new AppMainNick();
         ap.run();
     }
     // Metodo donde se ejecutará lo necesario
     public void run() {
         //Declaración del menu
-        Menu m = new Menu();
+        MenuNick m = new MenuNick();
         Boolean salir= false;
         Integer opcion =0;
         String[] opc = {
@@ -59,7 +59,7 @@ public class AppMain {
 
     public void listVehiculos() {
         //Creamos un Arraylist listV con el metodo findAll que devuelve un arraylist con los vehiculos de la bbdd
-        ArrayList<Vehiculo> listv = apm.bdVehiculos.findAll();
+        ArrayList<VehiculoNick> listv = apm.bdVehiculos.findAll();
         if (listv==null) {
             System.out.println("La BBDD no tiene ningún vehículo registrado"); // Si la BBDD está vacía saltará este mensaje
         } else {
@@ -70,13 +70,13 @@ public class AppMain {
             System.out.println();
             // Metodo JustificaCentro, debajo está el código, pero es solo por presentación, a la izquierda está el String y a la derecha cuantos espacios queremos que tenga de separación con otro elemento
             System.out.println(JustificaCentro("Matricula",20)+"|"+JustificaCentro("Color",20)+"|"+JustificaCentro("Fecha",20));
-            for (Vehiculo vehiculo : listv) {
+            for (VehiculoNick vehiculoNick : listv) {
                 for (int i = 0; i < 60; i++) {
                     System.out.print("-");
                 }
                 System.out.println();
                 //Imprimimos los valores de los vehiculos en listv
-                System.out.println(JustificaCentro(""+vehiculo.getMatricula(),20)+"|"+JustificaCentro(""+vehiculo.getColor(),20)+"|"+JustificaCentro(""+vehiculo.getFecha(),20));
+                System.out.println(JustificaCentro(""+vehiculoNick.getMatricula(),20)+"|"+JustificaCentro(""+vehiculoNick.getColor(),20)+"|"+JustificaCentro(""+vehiculoNick.getFecha(),20));
             }
         }
     }
@@ -88,7 +88,7 @@ public class AppMain {
             System.out.println("La matrícula no cumple las condiciones requeridas, asegurate de que cumpla la siguiente estructura: (0000-AAA)");
             matricula = pedirMatriculaV();
         }
-        Vehiculo v = apm.bdVehiculos.findOne(matricula); // Una vez la matrícula sea válida la buscamos con findOne y creamos un vehiculo para tenerlo guardado
+        VehiculoNick v = apm.bdVehiculos.findOne(matricula); // Una vez la matrícula sea válida la buscamos con findOne y creamos un vehiculo para tenerlo guardado
         if (v != null) { // Si no encontró un vehiculo con esa matrícula sera null, en caso contrario será diferente de null
             apm.bdVehiculos.deleteOne(matricula); //Usamos el metodo deleteOne con la matricula ingresada
             System.out.println("El vehiculo con matricula "+matricula+" ha sido eliminado exitósamente de la BBDD"); // Mensaje de confirmación
@@ -103,7 +103,7 @@ public class AppMain {
             System.out.println("La matrícula no cumple las condiciones requeridas, asegurate de que cumpla la siguiente estructura: (0000-AAA)");
             matricula = pedirMatriculaV();
         }
-        Vehiculo v = apm.bdVehiculos.findOne(matricula);
+        VehiculoNick v = apm.bdVehiculos.findOne(matricula);
         if (v != null) {
             System.out.println("Esta matrícula ya está registrada en la base de datos. ERR");
         } else {
@@ -112,7 +112,7 @@ public class AppMain {
             String color = sc.nextLine().toUpperCase();
             System.out.print("Dime el año :");
             Integer fecha = sc.nextInt();
-            v = new Vehiculo(matricula,color,fecha);
+            v = new VehiculoNick(matricula,color,fecha);
             apm.bdVehiculos.insertOne(v);
         }
     }
