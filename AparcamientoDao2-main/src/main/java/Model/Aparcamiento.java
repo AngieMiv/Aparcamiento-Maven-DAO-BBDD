@@ -7,10 +7,13 @@ import java.util.ArrayList;
 /**
  * Represents a parking lot that can be serialized for storage or data transfer.
  * 
- * <p>This class implements {@link Serializable}, allowing instances of {@code Aparcamiento}
+ * This class implements {@link Serializable}, allowing instances of {@code Aparcamiento}
  * to be converted into a byte stream and restored later.
  * This is useful for saving the state of parking lots or 
- * transferring data across different systems.</p>
+ * transferring data across different systems.
+ * 
+ * La clase almacena datos de un aparcamiento y parece interactuar con DAO JDBC (DaoVehiculoJDBC),
+ * que probablemente sea responsable de manejar la base de datos.
  * 
  * Lo mismo que en vehículo, implementa la interfaz serializable para transferencia de datos, 
  * aun no se usan los atributos de plazas.
@@ -26,8 +29,13 @@ public class Aparcamiento implements Serializable {
 	private int numColumnas ;	// Plazas por fila o pasillo
 	private String[][] plaza;	// Plaza de aparcamiento
 	
-	public DaoVehiculoJDBC lstVehiculos = new DaoVehiculoJDBC();	//
-	public DaoESList lstES = new DaoESList();	// Lista de Entrada y Salida
+	// Un objeto DAO que maneja la conexión con la base de datos para 
+	// gestionar vehículos en el aparcamiento.
+	public DaoVehiculoJDBC lstVehiculos = new DaoVehiculoJDBC();
+	
+	// Otra clase de Dao que maneja operaciones con una Lista de Entrada y Salida,
+	// responsable de gestionar el registro de entradas y salidas de vehículo
+	public DaoESList lstES = new DaoESList();	
 	
 	private int fila;
 	private int columna;
@@ -42,7 +50,6 @@ public class Aparcamiento implements Serializable {
 		this.numColumnas = numColumnas;
 		this.plaza = new String[numFilas][numColumnas];
 		initPlazas();
-		
 		
 	}
 	

@@ -20,11 +20,10 @@ public class DaoJdbc {
     
     public DaoJdbc(){
     
-    String jdbcUrl = "jdbc:postgresql://192.168.1.11:5432";
-    String user = "postgres";
-    String password = "root";
-    String dbname = "postgres";
-    
+    String jdbcUrl = "jdbc:mysql://localhost:5432";
+    String user = "amiv";
+    String password = "amiv";
+    String dbname = "db_aparcamientoDao2";
  
         try {
          c = DriverManager.getConnection(jdbcUrl+"/"+dbname, user, password);

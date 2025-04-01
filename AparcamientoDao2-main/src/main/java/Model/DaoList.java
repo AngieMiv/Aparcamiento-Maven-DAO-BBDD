@@ -17,14 +17,12 @@ public interface DaoList <T> {
 
 	/**
 	 * Retrieves all elements from the data source.
-	 * 
 	 * @return an {@code ArrayList} containing all objects of type {@code T}.
 	 */
 	public ArrayList<T> findAll();
 
 	/**
 	 * Finds an especific element based on the given key.
-	 * 
 	 * @param key they unique identifier of the element to retrieve.
 	 * @return the corresponding object of type {@code T}, or {@code null} if not found.
 	 */
@@ -32,7 +30,6 @@ public interface DaoList <T> {
 
 	/**
 	 * Inserts a new element into the data source.
-	 * 
 	 * @param t the object to insert
 	 * @return {@code true} if the operation was successful, {@code false} otherwise.
 	 */
@@ -40,7 +37,6 @@ public interface DaoList <T> {
 
 	/**
 	 * Deletes an element identified by the given key.
-	 * 
 	 * @param key the unique identifier of the element to delete
 	 * @return {@code true} if the deletion was successful, {@code false} otherwise.
 	 */
@@ -48,7 +44,6 @@ public interface DaoList <T> {
 
 	/**
 	 * Updates an existing element identified by the given key
-	 * 
 	 * @param key the unique identifier of the element to update
 	 * @param t the updated object
 	 * @return {@code true} if the update was successful, {@code false} otherwise.
@@ -56,3 +51,4 @@ public interface DaoList <T> {
 	public boolean updateOne(String key,T t);
 
 } // end interface DaoList
+

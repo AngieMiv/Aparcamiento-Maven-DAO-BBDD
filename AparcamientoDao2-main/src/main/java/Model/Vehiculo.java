@@ -16,13 +16,13 @@ import java.io.Serializable;
  */
 public class Vehiculo implements Serializable {
 
-	// Indica la versión del serializador de Serializable
+	// Indica la versión del serializador de Serializable, usada para evitar errores al deserializar.
 	private static final long serialVersionUID = 1L;	// Ensures compatibility across versions
 
 	// demás Atributos
 	private String matricula;
 	private String color;
-	private int fecha;
+	private int fecha;		// Sería mejor un LocalDate
 
 	// --- Constructores
 
