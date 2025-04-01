@@ -72,7 +72,17 @@ public class AparcamientoDao2 {
 	public void run() {
 
 
-		DaoVehiculoJDBC dv = new DaoVehiculoJDBC();      
+		DaoVehiculoJDBC dv = new DaoVehiculoJDBC();
+		
+		// probar conexion y salir con sysexit0
+		if (dv.getConn() != null)
+			System.out.println("Establecida conexión con BBDD");
+		else 
+			System.out.println("Error en la conexión con BBDD");
+		
+		System.exit(0);
+		
+		
 		ArrayList<Vehiculo> alv = new ArrayList<Vehiculo>();
 
 		alv = dv.findAll();

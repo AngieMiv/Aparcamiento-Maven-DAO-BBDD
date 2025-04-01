@@ -74,8 +74,8 @@ public class DaoVehiculoJDBC extends DaoJdbc implements DaoList<Vehiculo> {
 
 		} catch (SQLException ex) {
 			Logger.getLogger(DaoVehiculoJDBC.class.getName()).log(Level.SEVERE, null, ex);
-			throw new RuntimeException("Error al obtener vehículos", ex);
-			// return null; // TODO devolver el valor correcto
+			// throw new RuntimeException("Error al obtener vehículos", ex);
+			return null; // TODO devolver el valor correcto
 		}
 
 	}
@@ -107,7 +107,8 @@ public class DaoVehiculoJDBC extends DaoJdbc implements DaoList<Vehiculo> {
 			
 		} catch (SQLException ex) {
 			Logger.getLogger(DaoAparcamientoJDBC.class.getName()).log(Level.SEVERE, null, ex);
-			throw new RuntimeException("Error al buscar vehículo", ex);
+			//throw new RuntimeException("Error al buscar vehículo", ex);
+			return null;
 		}
 	} // end findOne(String key)
 
@@ -148,7 +149,7 @@ public class DaoVehiculoJDBC extends DaoJdbc implements DaoList<Vehiculo> {
 				
 			} catch (SQLException ex) {
 				Logger.getLogger(DaoAparcamientoJDBC.class.getName()).log(Level.SEVERE, null, ex);
-				throw new RuntimeException ("Error al insertar el vehículo", ex);
+				//throw new RuntimeException ("Error al insertar el vehículo", ex);
 			}
 		}
 		return result;	
@@ -171,7 +172,8 @@ public class DaoVehiculoJDBC extends DaoJdbc implements DaoList<Vehiculo> {
 			
 		} catch (SQLException ex) {
 			Logger.getLogger(DaoAparcamientoJDBC.class.getName()).log(Level.SEVERE, null, ex);
-			throw new RuntimeException ("Error al eliminar el vehículo", ex);
+			//throw new RuntimeException ("Error al eliminar el vehículo", ex);
+			return false;
 		}
 	}
 
@@ -184,7 +186,7 @@ public class DaoVehiculoJDBC extends DaoJdbc implements DaoList<Vehiculo> {
 			pstm.setString(3, key);
 			int rowsAffected = pstm.executeUpdate();
 			if (rowsAffected > 0) {
-				System.out.println("Vehículo actualizado con éxito");
+				System.out.println("Vehículo actualizado con éxito de matrícula " + key);
 				return true;
 			} else {
 				System.out.println("No se encontró el vehículo");
@@ -192,7 +194,8 @@ public class DaoVehiculoJDBC extends DaoJdbc implements DaoList<Vehiculo> {
 			}
 		} catch (SQLException ex) {
 			Logger.getLogger(DaoAparcamientoJDBC.class.getName()).log(Level.SEVERE, null, ex);
-			throw new RuntimeException ("Error al actualizar vehículo", ex);
+			//throw new RuntimeException ("Error al actualizar vehículo", ex);
+			return false;
 		}
 	}
 
