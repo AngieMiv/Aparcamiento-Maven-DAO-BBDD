@@ -6,6 +6,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Maneja entrada/salida de vehículos (ES).
+ * Guarda los registros en LogES.csv.
+ */
 public class DaoESList implements DaoList<ES> {
 
 	public ArrayList<ES> listaEntSal = new ArrayList<ES>();

@@ -2,6 +2,10 @@ package Model.Files;
 
 import java.util.HashMap;
 
+/**
+ * Interfaz con operaciones CRUD usando HashMap<Integer, T>.
+ * @param <T>
+ */
 public interface DaoMap<T> {
 
 	public HashMap<Integer,T> findAll();

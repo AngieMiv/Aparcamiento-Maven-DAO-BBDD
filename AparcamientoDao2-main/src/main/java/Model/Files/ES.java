@@ -2,6 +2,10 @@ package Model.Files;
 
 import java.time.LocalDateTime;
 
+/**
+ * Representa un evento de entrada/salida de un vehículo.
+ * Métodos para convertir a CSV.
+ */
 public class ES {
 
 	private String matricula;

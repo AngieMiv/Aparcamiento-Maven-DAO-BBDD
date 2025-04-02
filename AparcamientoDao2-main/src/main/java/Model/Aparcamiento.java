@@ -18,6 +18,10 @@ import java.util.ArrayList;
  * Lo mismo que en vehículo, implementa la interfaz serializable para transferencia de datos, 
  * aun no se usan los atributos de plazas.
  * 
+ * Representa un estacionamiento con plazas organizadas en filas y columnas.
+ * Contiene listas de vehículos (DaoVehiculoJDBC) y registros de entrada/salida (DaoESList).
+ * Métodos para buscar, aparcar y retirar vehículos.
+ * 
  * @see Serializable
  */
 public class Aparcamiento implements Serializable {

@@ -1,6 +1,5 @@
 package Model.Files;
 
-
 import Model.DaoList;
 import Model.Vehiculo;
 import java.io.BufferedReader;
@@ -15,6 +14,13 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+
+/**
+ * DaoVehiculoList
+ * Almacena vehículos en ArrayList<Vehiculo>.
+ * CRUD básico sobre la lista.
+ * Métodos para cargar y guardar en ficheros CSV.
+ */
 public class DaoVehiculoList implements DaoList<Vehiculo>, Serializable {
 
 	// Indica la versión del serializador de Serializable
@@ -24,7 +30,7 @@ public class DaoVehiculoList implements DaoList<Vehiculo>, Serializable {
 
 	public DaoVehiculoList() {
 
-	}
+	} // end class DaoVehiculoList implements DaoList<Vehiculo>, Serializable
 
 
 	public ArrayList<Vehiculo> findAll() {
@@ -34,6 +40,7 @@ public class DaoVehiculoList implements DaoList<Vehiculo>, Serializable {
 		//  --- Referencia
 		return listaVehiculos;
 	}
+
 	public Vehiculo findOne(String key) {
 
 		Vehiculo result = null;
@@ -45,6 +52,7 @@ public class DaoVehiculoList implements DaoList<Vehiculo>, Serializable {
 
 		return result;
 	}
+
 	public boolean insertOne(Vehiculo v) {
 
 		boolean result = false;
@@ -53,12 +61,11 @@ public class DaoVehiculoList implements DaoList<Vehiculo>, Serializable {
 
 		return result;
 	}
-	
-	
+
 	public boolean deleteOne(String key){
-		
+
 		boolean result = false;
-		
+
 		for(Vehiculo v : listaVehiculos) {
 			if ( v.getMatricula().equals(key)) {
 				listaVehiculos.remove(v);
@@ -67,11 +74,11 @@ public class DaoVehiculoList implements DaoList<Vehiculo>, Serializable {
 				break;
 			}
 		} // end for
-		
-		return result;
-	}
 
-	
+		return result;
+	} // end deleteOne
+
+
 	public boolean updateOne(String key,Vehiculo v){
 
 		boolean result = false;		
@@ -87,7 +94,7 @@ public class DaoVehiculoList implements DaoList<Vehiculo>, Serializable {
 		} // iterar
 
 		return result;
-	}
+	} // end updateOne
 
 	/**
 	 * Recupera de un fichero de texto en formato csv una lsita de vehículos
@@ -108,12 +115,12 @@ public class DaoVehiculoList implements DaoList<Vehiculo>, Serializable {
 			}
 			br.close();
 		} catch (IOException e) { 
-			result = false;
+			result = true;
 			//e.printStackTrace();
 		}
 
 		return result;
-	}
+	} // end loadAll
 
 	/**
 	 * Almacena en un fichero de texto en formato csv el contenido 
@@ -129,8 +136,9 @@ public class DaoVehiculoList implements DaoList<Vehiculo>, Serializable {
 			bw.write(v.toCsv());
 			bw.newLine();
 		}
+		
 		bw.close();	
 		return result;
-	}
+	} // end saveAll
 
 }
